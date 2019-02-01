@@ -9,7 +9,7 @@ services:
     container_name: patron-web
     image: lyrasis/patron-web:latest
     environment:
-      CONFIG: /config
+      CONFIG_FILE: /config
     volumes:
       - ./config:/config
     ports:
