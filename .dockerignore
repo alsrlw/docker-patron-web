@@ -1,4 +1,5 @@
 .git
-config/cm-libraries.conf
+.gitignore
+config/*
 docker-compose.yml
 
