@@ -13,7 +13,7 @@ EXPOSE 3000
 COPY . /build
 COPY --from=builder /patron-web/dist /patron-web/dist
 COPY --from=builder /patron-web/lib  /patron-web/lib
-COPY --from=builder /patron-web/package*.json /patron-web/.
+COPY --from=builder /patron-web/package*.json /patron-web/
 RUN /build/build.sh
 WORKDIR /patron-web
 CMD ./entrypoint.sh
