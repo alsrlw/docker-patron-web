@@ -3,7 +3,7 @@
 set -x
 
 # get the source
-git clone https://github.com/NYPL-Simplified/circulation-patron-web.git /patron-web
+git clone $1 --branch $2 --single-branch /patron-web
 
 # compile
 cd /patron-web
