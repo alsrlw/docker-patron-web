@@ -1,2 +1,14 @@
-<client_path_short_name>|http://<cm_domain_name>/<cm_short_name>
+# Configuration file for list of libraries served by the SimplyE Patron Web Client
+# 
+# Add one line (no leading spaces) per library being hosted. This enables the Patron Web client
+# to connect to the library's SimplyE Circulation Manager for content and circulation functions.
+# Two elements are required, separated by a pipe character (|).
+#
+# <client_path_short_name> : Distinguishes libraries served in this Patron Web client server;
+#      displays as the first segment of the URL path after the patron web server domain name;
+# <cm_domain_URL> : The primary portion of the URL for to the library's Circulation Manager
+# <cm_short_name> : The 'short name' assigned to the library in the Circulation Manager hosting
+#      its collections
 
+# Example:
+# <client_path_short_name>|<cm_domain_URL>/<cm_short_name>

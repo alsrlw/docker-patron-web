@@ -20,7 +20,7 @@ When you have code changes you wish to review locally, you will need to build a 
 
 4. Review the file `config/cm-libraries.conf.sample` for proper formatting in creating a configuration file which links the web application to a library's SimplyE Circulation Manager in order to pull catalog feeds into the display. The SimplyE web client application can be configured on behalf of multiple libraries to provide a web-based client for their patrons. In a multi-tenant environment, each library will be represented in the config file as a separate line.
 
-5. You can create an empty config file or rename the sample file with the filename `config/cm-libraries.conf`. Here's an example entry in the file for a library with a Circulation Manager short name of `abclib` whose Circulation Manager is available at the domain `circulation-simplye.library.org`:
+5. Create an empty config file as `config/cm-libraries.conf` or copy the sample file `config/cm-libraries.conf.sample` to that .conf file. Then add a one-line configuration for each library being hosted in the Patron Web Client server. Here's an example entry in the file for a library with a Circulation Manager short name of `abclib` whose Circulation Manager is available at the domain `circulation-simplye.library.org`. We've chose to use the same shortname in the Patron Web Client as we do in the Circulation Manager, though that is not a requirement.
     ```
     abclib|http://circulation-simplye.library.org/abclib
     ```
@@ -46,6 +46,7 @@ When you have code changes you wish to review locally, you will need to build a 
 Once you have an image to run, you can instantiate the Docker container easily. If you built a local image in the section above, you can create a container from it with the following command:
     ```
     docker run --rm --name patronweb -d -p 3000:3000 \
+        --restart=unless-stopped \
     	-e "CONFIG_FILE=/config/cm-libraries.conf" \
         -v "./config:/config" patronweb
     ```
@@ -53,6 +54,7 @@ Once you have an image to run, you can instantiate the Docker container easily. 
 If you want to use the pre-built image from the parent project we have uploaded to the Docker Hub service, issue the following variant of the command:
     ```
     docker run --rm --name patronweb -d -p 3000:3000 \
+        --restart=unless-stopped \
     	-e "CONFIG_FILE=/config/cm-libraries.conf" \
         -v "./config:/config" lyrasis/patron-web
     ```
