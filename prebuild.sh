@@ -8,5 +8,5 @@ git clone $1 --branch $2 --single-branch /patron-web
 # compile
 cd /patron-web
 npm install
-npm run prepublish
+npm run build-prod
 

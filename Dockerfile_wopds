@@ -20,6 +20,10 @@ COPY --from=builder /patron-web/dist /patron-web/dist
 COPY --from=builder /patron-web/lib  /patron-web/lib
 COPY --from=builder /patron-web/package*.json /patron-web/
 COPY --from=builder /patron-web/webpack* /patron-web/
+COPY --from=builder /opds-web/packages/opds-web-client/dist /opds-web/packages/opds-web-client/dist
+COPY --from=builder /opds-web/packages/opds-web-client/lib  /opds-web/packages/opds-web-client/lib
+COPY --from=builder /opds-web/packages/opds-web-client/package*.json /opds-web/packages/opds-web-client/
+COPY --from=builder /opds-web/package*.json /opds-web/
 RUN /build/build.sh
 WORKDIR /patron-web
 CMD ./entrypoint.sh
